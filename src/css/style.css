@@ -1,0 +1,15 @@
+body{padding:0;margin:0;}
+h1,h2,h3,h4,h5,h6{padding:0;}
+ul{list-style: none;padding:0;}
+a{text-decoration: none;color:#000;}
+
+.App{display: flex;width: 100%;max-width: 1280px;margin:100px auto}
+.App > div{width: 50%;padding:20px;box-sizing: border-box;}
+.view{border:1px solid #333;padding:20px;box-sizing: border-box;margin-bottom: 20px;}
+.detail{border:1px solid #333;padding:20px;box-sizing: border-box;margin-bottom: 20px;}
+.likes{border:1px solid #333;padding:20px;box-sizing: border-box;margin-bottom: 20px;}
+
+.list{border:1px solid #333;padding:20px;box-sizing: border-box;margin-bottom: 20px;}
+.search{border:1px solid #333;padding:20px;box-sizing: border-box;margin-bottom: 20px;}
+.types{border:1px solid #333;padding:20px;box-sizing: border-box;margin-bottom: 20px;}
+.pokemon{border:1px solid #333;padding:20px;box-sizing: border-box;margin-bottom: 20px;}
