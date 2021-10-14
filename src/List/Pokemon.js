@@ -13,6 +13,18 @@ function Pokemon(props) {
               <span key={i}>{type}</span>
             ))}
           </p>
+          <button
+            onClick={() =>
+              props.handleCollect(
+                //
+                pokemon.name,
+                pokemon.id,
+                pokemon.img,
+              )
+            }
+          >
+            ❤️
+          </button>
         </li>
       ))}
     </ul>
@@ -22,6 +34,7 @@ function Pokemon(props) {
 Pokemon.propTypes = {
   pokemons: PropTypes.array,
   selectPokemon: PropTypes.func,
+  handleCollect: PropTypes.func,
 }
 
 export default Pokemon

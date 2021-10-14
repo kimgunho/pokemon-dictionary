@@ -9,7 +9,11 @@ function List(props) {
     <div className="list">
       <Search />
       <Types />
-      <Pokemon pokemons={props.items} selectPokemon={props.selectPokemon} />
+      <Pokemon
+        pokemons={props.items}
+        selectPokemon={props.selectPokemon}
+        handleCollect={props.handleCollect}
+      />
     </div>
   )
 }
@@ -17,6 +21,7 @@ function List(props) {
 List.propTypes = {
   items: PropTypes.array,
   selectPokemon: PropTypes.func,
+  handleCollect: PropTypes.func,
 }
 
 export default List

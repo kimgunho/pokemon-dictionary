@@ -9,6 +9,8 @@ function App() {
   const [pokemons, setPokemons] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [selectorName, setSelectorName] = useState()
+  const [collectPokemons, setCollectPokemons] = useState([])
+
   const URL = 'https://pokeapi.co/api/v2/pokemon?limit=8&offset=100'
 
   const callPokemonApi = async () => {
@@ -25,12 +27,33 @@ function App() {
         {
           id: pokemonJson.id,
           name: pokemonJson.name,
-          img: pokemonJson.sprites.front_default,
+          img: pokemonJson.sprites.other.dream_world.front_default,
           types: pokemonJson.types.map(({ type: { name } }) => name),
         },
       ])
     })
     setIsLoading(true)
+  }
+
+  const getCollect = (name, id, img) => {
+    const overlapName = collectPokemons.find((item) => item.name === name)
+    if (!overlapName) {
+      setCollectPokemons((curPokemon) => [
+        ...curPokemon,
+        {
+          id,
+          name,
+          img,
+        },
+      ])
+    }
+  }
+
+  const removeCollect = (name) => {
+    const filter = collectPokemons.filter((item) => {
+      return item.name !== name
+    })
+    setCollectPokemons(filter)
   }
 
   useEffect(() => {
@@ -41,8 +64,16 @@ function App() {
     <div className="App">
       {isLoading ? (
         <>
-          <View selectorName={selectorName} />
-          <List items={pokemons} selectPokemon={setSelectorName} />
+          <View
+            selectorName={selectorName}
+            collect={collectPokemons}
+            removeCollect={removeCollect}
+          />
+          <List //
+            items={pokemons}
+            selectPokemon={setSelectorName}
+            handleCollect={getCollect}
+          />
         </>
       ) : (
         <p>loading...</p>
