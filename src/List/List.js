@@ -9,13 +9,13 @@ function List(props) {
     <div className="list">
       <Search />
       <Types />
-      <Pokemon allPokemons={props.allPokemons} />
+      <Pokemon pokemons={props.items} />
     </div>
   )
 }
 
 List.propTypes = {
-  allPokemons: PropTypes.array,
+  items: PropTypes.array,
 }
 
 export default List

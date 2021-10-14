@@ -11,49 +11,38 @@ function App() {
   const [pokemons, setPokemons] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const URL = 'https://pokeapi.co/api/v2/pokemon?limit=8&offset=100'
-  const virtual = []
-
-  useEffect(() => {
-    callPokemonApi()
-    console.log('end')
-  }, [])
 
   const callPokemonApi = async () => {
     const res = await fetch(URL)
     const json = await res.json()
-    const { results } = await json
+    const { results } = json
 
     results.map(async ({ url }) => {
       const pokemonRes = await fetch(url)
       const pokemonJson = await pokemonRes.json()
-      // virtual.push({
-      //   id: await pokemonJson.id,
-      //   name: await pokemonJson.name,
-      // })
-      setPokemons(() => [
-        ...pokemons,
+      setPokemons((curList) => [
+        ...curList,
         {
           id: pokemonJson.id,
+          name: pokemonJson.name,
+          img: pokemonJson.sprites.front_default,
+          types: pokemonJson.types.map(({ type: { name } }) => name),
         },
       ])
     })
 
-    setPokemons(virtual)
     setIsLoading(true)
-    console.log(pokemons)
   }
 
+  useEffect(async () => {
+    await callPokemonApi()
+  }, [])
   return (
     <div className="App">
       {isLoading ? (
         <>
           <View />
-          <List allPokemons={pokemons} />
-          <ul className="aaa">
-            {pokemons.map((list) => (
-              <li key={list.id}>{list.name}</li>
-            ))}
-          </ul>
+          <List items={pokemons} />
         </>
       ) : (
         <p>loading...</p>
