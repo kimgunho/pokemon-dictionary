@@ -14,4 +14,8 @@ a{text-decoration: none;color:#000;}
 .types{border:1px solid #333;padding:20px;box-sizing: border-box;margin-bottom: 20px;}
 
 .pokemons-list{display: flex;flex-wrap:wrap;}
-.pokemons-list li{width: 50%;}
+.pokemons-list li{width: 50%;cursor: pointer;}
+
+.detail{}
+.detail h2{}
+.detail img{width: 100%;}

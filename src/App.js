@@ -8,8 +8,8 @@ import './css/style.css'
 function App() {
   const [pokemons, setPokemons] = useState([])
   const [isLoading, setIsLoading] = useState(false)
+  const [selectorName, setSelectorName] = useState()
   const URL = 'https://pokeapi.co/api/v2/pokemon?limit=8&offset=100'
-  const testPokemon = []
 
   const callPokemonApi = async () => {
     const res = await fetch(URL)
@@ -19,13 +19,6 @@ function App() {
     results.map(async ({ url }) => {
       const pokemonRes = await fetch(url)
       const pokemonJson = await pokemonRes.json()
-      testPokemon.push({
-        id: pokemonJson.id,
-        name: pokemonJson.name,
-        img: pokemonJson.sprites.front_default,
-        types: pokemonJson.types.map(({ type: { name } }) => name),
-      })
-
       // 빈 변수에 최종적으로 담겨 완성된 포켓몬 배열을 마지막에 setPokemons에 넣는부분에 대한 질문
       setPokemons((curList) => [
         ...curList,
@@ -43,12 +36,13 @@ function App() {
   useEffect(() => {
     callPokemonApi()
   }, [])
+
   return (
     <div className="App">
       {isLoading ? (
         <>
-          <View />
-          <List items={pokemons} />
+          <View selectorName={selectorName} />
+          <List items={pokemons} selectPokemon={setSelectorName} />
         </>
       ) : (
         <p>loading...</p>
