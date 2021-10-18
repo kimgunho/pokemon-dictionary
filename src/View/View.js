@@ -1,12 +1,11 @@
 import React from 'react'
-import DetailView from './DetailView'
+import Detail from './Detail'
 import Likes from './Likes'
 
 function View() {
   return (
     <div className="view">
-      뷰페이지
-      <DetailView />
+      <Detail />
       <Likes />
     </div>
   )

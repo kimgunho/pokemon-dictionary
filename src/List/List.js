@@ -6,7 +6,6 @@ import Pokemon from './Pokemon'
 function List() {
   return (
     <div className="list">
-      리스트페이지
       <Search />
       <Types />
       <Pokemon />
