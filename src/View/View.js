@@ -1,19 +1,12 @@
 import React from 'react'
-import DetailView from './DetailView'
-import Likes from './Likes'
-import PropTypes from 'prop-types'
+import Detail from './Detail'
 
-function View(props) {
+function View() {
   return (
     <div className="view">
-      <DetailView name={props.selectorName} />
-      <Likes />
+      <Detail />
     </div>
   )
-}
-
-View.propTypes = {
-  selectorName: PropTypes.string,
 }
 
 export default View

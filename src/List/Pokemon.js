@@ -1,27 +1,30 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { pokemonDetail } from '../context/data'
 
-function Pokemon(props) {
+function Pokemon({ item }) {
+  const { pokemon } = pokemonDetail()
   return (
-    <ul className="pokemons-list">
-      {props.pokemons.map((pokemon) => (
-        <li key={pokemon.id} onClick={() => props.selectPokemon(pokemon.name)}>
-          <img src={pokemon.img} alt={pokemon.name} />
-          <p>{pokemon.name}</p>
-          <p>
-            {pokemon.types.map((type, i) => (
-              <span key={i}>{type}</span>
-            ))}
-          </p>
-        </li>
-      ))}
-    </ul>
+    <>
+      <ul className="options">
+        <li>처음상태로 {pokemon.name}</li>
+        <li>즐겨찾기 모음</li>
+      </ul>
+      <ul className="pokemons-list">
+        {item &&
+          item.map(({ id, name, img }) => (
+            <li key={id}>
+              <img src={img} alt={name} />
+              <h2>{name}</h2>
+            </li>
+          ))}
+      </ul>
+    </>
   )
 }
 
 Pokemon.propTypes = {
-  pokemons: PropTypes.array,
-  selectPokemon: PropTypes.func,
+  item: PropTypes.array,
 }
 
 export default Pokemon
