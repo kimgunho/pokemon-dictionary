@@ -5,6 +5,10 @@ const pokemons = ({ items }) => {
   const { SetSelect } = UseUserPokemons()
   return (
     <>
+      <ul className="like-options">
+        <li>되돌리기</li>
+        <li>나의 포켓몬들</li>
+      </ul>
       <ul className="pokemons">
         {items.map(({ id, name, img, type }) => (
           <li
