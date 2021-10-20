@@ -2,3 +2,11 @@ body{padding:0;margin:0;}
 h1,h2,h3,h4,h5,h6{padding:0;}
 ul{list-style: none;padding:0;}
 a{text-decoration: none;color:#000;}
+
+.App{display: flex;width: 100%;max-width: 940px;margin:auto;}
+.App > div{width: 50%;padding:20px;box-sizing: border-box;}
+
+.pokemons{display: flex;flex-wrap: wrap;justify-content:space-between;}
+.pokemons li{width: 30%;cursor: pointer;padding:10px;box-sizing: border-box;border-radius: 20px;margin-bottom: 20px;text-align: center;}
+.pokemons li h3{font-size: 1.125em;}
+.pokemons li img{width: 100%;max-width: 80px;}
