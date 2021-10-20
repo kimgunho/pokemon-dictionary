@@ -17,6 +17,9 @@ a{text-decoration: none;color:#000;}
 .pokemons-list li{width: 50%;cursor: pointer;}
 .pokemons-list li img{width: 100%;max-width: 80px;} 
 
-.detail{}
-.detail h2{}
-.detail img{width: 100%;}
+.options{display: flex;}
+.options li{width: 50%;cursor: pointer;padding:20px 0;text-align: center;border:1px solid #333;line-height: 1;}
+
+.view{text-align: center;}
+.view h2{}
+.view img{width: 100%;max-width: 200px;}

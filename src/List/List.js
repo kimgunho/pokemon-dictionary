@@ -5,10 +5,10 @@ import Pokemon from './Pokemon'
 
 function List() {
   const [pokemons, setPokemons] = useState()
+  const [isLoading, SetIsLoading] = useState(true)
 
   const fetchPokemons = async () => {
     const res = await fetch(
-      //
       `https://pokeapi.co/api/v2/pokemon?limit=4&offset=100`,
     )
     const json = await res.json()
@@ -26,18 +26,24 @@ function List() {
         }
       }),
     )
-
+    SetIsLoading(false)
     setPokemons(() => resultsData)
   }
 
   useEffect(() => fetchPokemons(), [])
 
   return (
-    <div className="list">
-      <Search />
-      <Types />
-      <Pokemon item={pokemons} />
-    </div>
+    <>
+      {isLoading ? (
+        <div className="load">로딩중입니다.</div>
+      ) : (
+        <div className="list">
+          <Search />
+          <Types />
+          <Pokemon item={pokemons} />
+        </div>
+      )}
+    </>
   )
 }
 

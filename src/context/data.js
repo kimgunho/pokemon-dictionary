@@ -1,18 +1,13 @@
-import React, { createContext } from 'react'
+// import React, { createContext, useState, useContext } from 'react'
 
-export const selectorPokemonContexts = createContext()
+// const Context = createContext()
 
-export const pokemonDetail = ({ children }) => {
-  const pokemon = {
-    name: 'monster',
-    id: 0,
-  }
+// export const UserContextProvider = ({ children }) => {
+//   const [k, Setk] = useState()
 
-  return (
-    <selectorPokemonContexts.Provider value={pokemon}>
-      {children}
-    </selectorPokemonContexts.Provider>
-  )
-}
+//   return <Context.Provider value={{ k, Setk }}>{children}</Context.Provider>
+// }
 
-export default pokemonDetail
+// export const useUserContext = () => {
+//   return useContext(Context)
+// }

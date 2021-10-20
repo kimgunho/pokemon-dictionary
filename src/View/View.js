@@ -1,10 +1,12 @@
 import React from 'react'
-import Detail from './Detail'
-
+import { useUserPokemons } from '../context/UserPokemon'
 function View() {
+  const { selector } = useUserPokemons()
   return (
     <div className="view">
-      <Detail />
+      <img src={selector.img} alt={selector.name} />
+      <h2>{selector.name}</h2>
+      <button>❤️</button>
     </div>
   )
 }
