@@ -6,6 +6,10 @@ a{text-decoration: none;color:#000;}
 .App{display: flex;width: 100%;max-width: 940px;margin:auto;}
 .App > div{width: 50%;padding:20px;box-sizing: border-box;}
 
+.detail{text-align: center;}
+.detail h2{}
+.detail img{width: 100%;max-width: 200px;}
+
 .pokemons{display: flex;flex-wrap: wrap;justify-content:space-between;}
 .pokemons li{width: 30%;cursor: pointer;padding:10px;box-sizing: border-box;border-radius: 20px;margin-bottom: 20px;text-align: center;}
 .pokemons li h3{font-size: 1.125em;}
