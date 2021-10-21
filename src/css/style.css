@@ -1,16 +1,123 @@
-body{padding:0;margin:0;}
+body{
+    padding:0;
+    margin:0;
+}
 h1,h2,h3,h4,h5,h6{padding:0;}
-ul{list-style: none;padding:0;}
-a{text-decoration: none;color:#000;}
+ul{
+    list-style: none;
+    padding:0;
+}
+a{
+    text-decoration: none;
+    color:#000;
+}
 
-.App{display: flex;width: 100%;max-width: 940px;margin:auto;}
-.App > div{width: 50%;padding:20px;box-sizing: border-box;}
+.App{
+    display: flex;
+    width: 100%;
+    max-width: 940px;
+    margin:auto;
+}
+.App > div{
+    width: 50%;
+    padding:20px;
+    box-sizing: border-box;
+}
 
-.detail{text-align: center;}
-.detail h2{}
-.detail img{width: 100%;max-width: 200px;}
+.detail{
+    text-align: center;
+    position:relative
+}
+.detail .on::after{
+    background-color: tomato;
+    color:#fff;
+    content: '좋아요!';
+}
+.detail .off::after{
+    background-color: slateblue;
+    color:#fff;
+    content: '싫어요!';    
+}
 
-.pokemons{display: flex;flex-wrap: wrap;justify-content:space-between;}
-.pokemons li{width: 30%;cursor: pointer;padding:10px;box-sizing: border-box;border-radius: 20px;margin-bottom: 20px;text-align: center;}
-.pokemons li h3{font-size: 1.125em;}
-.pokemons li img{width: 100%;max-width: 80px;}
+.detail .like{
+    position: absolute;
+    left:10px;
+    top:10px;
+    background-color: transparent;
+    font-size: 2em;
+    border:0;
+    cursor: pointer;
+}
+.detail .like::after{
+    /* content: '좋아요!'; */
+    position: absolute;
+    bottom:0;
+    /* background-color: tomato; */
+    /* color:#fff; */
+    white-space: nowrap;
+    padding:5px;
+    border-radius: 10px;
+    font-size: 1rem;
+    opacity: 0;
+    transition: all .5s;
+}
+.detail .like:hover::after{
+    opacity: 1;
+}
+
+.detail h2{
+    font-size: 1.25em;
+}
+
+.detail h2 span{
+    background-color: #333;
+    color:#fff;
+    padding:5px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-size:1rem;
+}
+
+.detail img{
+    width: 100%;
+    max-width: 200px;
+}
+
+.pokemons{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+}
+.pokemons li{
+    width: 30%;
+    cursor: pointer;
+    padding:10px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.pokemons li h3{
+    font-size: 1.125em;
+}
+.pokemons li img{
+    width: 100%;
+    max-width: 80px;
+}
+.like-options{
+    display: flex;
+    justify-content: space-between;
+}
+.like-options li{
+    cursor: pointer;
+    text-align: center;
+    padding:10px 0;
+    width: 45%;
+    border:1px solid #d2d2d2;
+    border-radius: 10px;
+    transition: all .3s;
+}
+.like-options li:hover{
+    background-color: crimson;
+    color:#fff;
+}
