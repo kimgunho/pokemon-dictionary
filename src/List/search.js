@@ -5,13 +5,18 @@ const Search = () => {
   const { pokemons, SetPokemons } = UseUserPokemons()
   const handleSearch = (e) => {
     e.preventDefault()
-    const searchValue = document.getElementById('search-ipt')
+    const searchEl = document.getElementById('search-ipt')
     const searchFilterPokemon = pokemons.filter(
       //
-      ({ name }) => name === searchValue.value,
+      ({ name }) => name === searchEl.value,
     )
+    if (searchFilterPokemon.length === 0) {
+      alert(`${searchEl.value}의 대한 검색결과가 없습니다.`)
+      searchEl.value = ''
+      return
+    }
     SetPokemons(searchFilterPokemon)
-    searchValue.value = ''
+    searchEl.value = ''
   }
 
   return (
