@@ -28,6 +28,17 @@ a{
     text-align: center;
     position:relative
 }
+.detail .on::after{
+    background-color: tomato;
+    color:#fff;
+    content: '좋아요!';
+}
+.detail .off::after{
+    background-color: slateblue;
+    color:#fff;
+    content: '싫어요!';    
+}
+
 .detail .like{
     position: absolute;
     left:10px;
@@ -38,11 +49,11 @@ a{
     cursor: pointer;
 }
 .detail .like::after{
-    content: '좋아요!';
+    /* content: '좋아요!'; */
     position: absolute;
     bottom:0;
-    background-color: tomato;
-    color:#fff;
+    /* background-color: tomato; */
+    /* color:#fff; */
     white-space: nowrap;
     padding:5px;
     border-radius: 10px;

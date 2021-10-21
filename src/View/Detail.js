@@ -16,19 +16,36 @@ const detail = () => {
           type: selected.type,
         },
       ])
+      alert(`${selected.name}이 추가되었습니다.`)
+    } else {
+      const filterCollect = collected.filter(
+        //
+        ({ name }) => name !== selected.name,
+      )
+      SetCollect(filterCollect)
+      alert(`${selected.name}이 삭제되었습니다.`)
     }
+  }
+
+  function LikeBtn() {
+    const isLikePokemon = collected.find(({ name }) => {
+      return name === selected.name
+    })
+
+    return (
+      <button
+        //
+        className={`like ${!isLikePokemon ? 'on' : 'off'}`}
+        onClick={overlapCheck}
+      >
+        {!isLikePokemon ? '❤️' : '💔'}
+      </button>
+    )
   }
 
   return (
     <div className="detail">
-      {selected.id ? (
-        <button className="like" onClick={overlapCheck}>
-          ❤️
-        </button>
-      ) : (
-        ''
-      )}
-
+      {selected.id ? <LikeBtn /> : ''}
       <img src={selected.img} alt={selected.name} />
       <h2>
         {selected.name} {selected.type ? <span>{selected.type}</span> : ''}

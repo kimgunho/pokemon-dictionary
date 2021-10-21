@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import Search from './search'
 import Types from './types'
 import Pokemons from './pokemons'
+import { UseUserPokemons } from '../Context//userPokemons'
 
 const list = () => {
-  const [pokemons, SetPokemons] = useState([])
+  // const [pokemons, SetPokemons] = useState([])
+  const { pokemons, SetPokemons } = UseUserPokemons()
 
   const fetchPokemons = async () => {
     const res = await fetch(
@@ -37,7 +39,12 @@ const list = () => {
     <div className="items">
       <Search />
       <Types />
-      <Pokemons items={pokemons} />
+      <Pokemons
+        //
+        items={pokemons}
+        handlePokemons={SetPokemons}
+        defaultPokemons={fetchPokemons}
+      />
     </div>
   )
 }

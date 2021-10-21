@@ -1,14 +1,16 @@
 import React from 'react'
 import { UseUserPokemons } from '../Context/userPokemons'
 
-const pokemons = ({ items }) => {
-  const { SetSelect } = UseUserPokemons()
+const pokemons = ({ items, handlePokemons, defaultPokemons }) => {
+  const { SetSelect, collected } = UseUserPokemons()
+
   return (
     <>
       <ul className="like-options">
-        <li>되돌리기</li>
-        <li>나의 포켓몬들</li>
+        <li onClick={() => defaultPokemons()}>되돌리기</li>
+        <li onClick={() => handlePokemons(collected)}>나의 포켓몬들</li>
       </ul>
+
       <ul className="pokemons">
         {items.map(({ id, name, img, type }) => (
           <li

@@ -3,6 +3,7 @@ import React, { createContext, useContext, useState } from 'react'
 const UserPokemonsContext = createContext()
 
 export const UserPokemonsProvider = ({ children }) => {
+  const [pokemons, SetPokemons] = useState([])
   const [selected, SetSelect] = useState({
     id: null,
     name: 'what a pokemon of today?',
@@ -15,7 +16,14 @@ export const UserPokemonsProvider = ({ children }) => {
   return (
     <UserPokemonsContext.Provider
       //
-      value={{ selected, SetSelect, collected, SetCollect }}
+      value={{
+        selected,
+        SetSelect,
+        collected,
+        SetCollect,
+        pokemons,
+        SetPokemons,
+      }}
     >
       {children}
     </UserPokemonsContext.Provider>
