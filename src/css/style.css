@@ -121,3 +121,23 @@ a{
     background-color: crimson;
     color:#fff;
 }
+
+.search-form{
+    width: 100%;
+    display: flex;
+}
+.search-form input[type='text']{
+    width: 80%;
+    border:0;
+    padding:10px;
+    box-sizing: border-box;
+    background-color: #f0f0f0;
+    font-size: 1.25em;
+}
+.search-form button{
+    width: 20%;
+    font-size: 1.25em;
+    border:0;
+    background-color: tomato;
+    color:#fff;    
+}
