@@ -1,42 +1,42 @@
 import React from 'react'
 import { UseUserPokemons } from '../Context/userPokemons'
 
-const detail = () => {
-  const { selected, collected, SetCollect } = UseUserPokemons()
+const Detail = () => {
+  const {
+    selectedPokemon,
+    collectPokemons,
+    SetcollectedPokemons,
+    //
+  } = UseUserPokemons()
 
-  function overlapCheck() {
-    const overlapName = collected.find(({ name }) => name === selected.name)
+  function handleCollectPokemon() {
+    const overlapName = collectPokemons.find(
+      //
+      ({ name }) => name === selectedPokemon.name,
+    )
     if (!overlapName) {
-      SetCollect((acc) => [
-        ...acc,
-        {
-          id: selected.id,
-          name: selected.name,
-          img: selected.img,
-          type: selected.type,
-        },
-      ])
-      alert(`${selected.name}이 추가되었습니다.`)
+      SetcollectedPokemons((acc) => [...acc, selectedPokemon])
+      alert(`${selectedPokemon.name}이 추가되었습니다.`)
     } else {
-      const filterCollect = collected.filter(
+      const filterCollect = collectPokemons.filter(
         //
-        ({ name }) => name !== selected.name,
+        ({ name }) => name !== selectedPokemon.name,
       )
-      SetCollect(filterCollect)
-      alert(`${selected.name}이 삭제되었습니다.`)
+      SetcollectedPokemons(filterCollect)
+      alert(`${selectedPokemon.name}이 삭제되었습니다.`)
     }
   }
 
   function LikeBtn() {
-    const isLikePokemon = collected.find(({ name }) => {
-      return name === selected.name
+    const isLikePokemon = collectPokemons.find(({ name }) => {
+      return name === selectedPokemon.name
     })
 
     return (
       <button
         //
         className={`like ${!isLikePokemon ? 'on' : 'off'}`}
-        onClick={overlapCheck}
+        onClick={handleCollectPokemon}
       >
         {!isLikePokemon ? '❤️' : '💔'}
       </button>
@@ -45,13 +45,14 @@ const detail = () => {
 
   return (
     <div className="detail">
-      {selected.id ? <LikeBtn /> : ''}
-      <img src={selected.img} alt={selected.name} />
+      {selectedPokemon.id ? <LikeBtn /> : ''}
+      <img src={selectedPokemon.img} alt={selectedPokemon.name} />
       <h2>
-        {selected.name} {selected.type ? <span>{selected.type}</span> : ''}
+        {selectedPokemon.name}
+        {selectedPokemon.type ? <span>{selectedPokemon.type}</span> : ''}
       </h2>
     </div>
   )
 }
 
-export default detail
+export default Detail

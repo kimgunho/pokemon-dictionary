@@ -4,8 +4,7 @@ import Types from './types'
 import Pokemons from './pokemons'
 import { UseUserPokemons } from '../Context//userPokemons'
 
-const list = () => {
-  // const [pokemons, SetPokemons] = useState([])
+const List = () => {
   const { pokemons, SetPokemons } = UseUserPokemons()
 
   const fetchPokemons = async () => {
@@ -30,7 +29,7 @@ const list = () => {
       }),
     )
 
-    SetPokemons(() => items)
+    SetPokemons(items)
   }
 
   useEffect(() => fetchPokemons(), [])
@@ -49,4 +48,4 @@ const list = () => {
   )
 }
 
-export default list
+export default List

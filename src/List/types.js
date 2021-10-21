@@ -1,7 +1,7 @@
 import React from 'react'
 
-const types = () => {
+const Types = () => {
   return <>types</>
 }
 
-export default types
+export default Types
