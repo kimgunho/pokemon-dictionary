@@ -6,12 +6,12 @@ import { UserPokemonsProvider } from './Context/userPokemons'
 
 function App() {
   return (
-    <div className="App">
-      <UserPokemonsProvider>
+    <UserPokemonsProvider>
+      <div className="App">
         <Detail />
         <List />
-      </UserPokemonsProvider>
-    </div>
+      </div>
+    </UserPokemonsProvider>
   )
 }
 

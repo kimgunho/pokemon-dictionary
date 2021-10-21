@@ -5,7 +5,7 @@ const Detail = () => {
   const {
     selectedPokemon,
     collectPokemons,
-    SetcollectedPokemons,
+    setCollectedPokemons,
     //
   } = UseUserPokemons()
 
@@ -15,14 +15,14 @@ const Detail = () => {
       ({ name }) => name === selectedPokemon.name,
     )
     if (!overlapName) {
-      SetcollectedPokemons((acc) => [...acc, selectedPokemon])
+      setCollectedPokemons((acc) => [...acc, selectedPokemon])
       alert(`${selectedPokemon.name}이 추가되었습니다.`)
     } else {
       const filterCollect = collectPokemons.filter(
         //
         ({ name }) => name !== selectedPokemon.name,
       )
-      SetcollectedPokemons(filterCollect)
+      setCollectedPokemons(filterCollect)
       alert(`${selectedPokemon.name}이 삭제되었습니다.`)
     }
   }

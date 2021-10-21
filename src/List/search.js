@@ -2,7 +2,7 @@ import React from 'react'
 import { UseUserPokemons } from '../Context/userPokemons'
 
 const Search = () => {
-  const { pokemons, SetPokemons } = UseUserPokemons()
+  const { pokemons, setPokemons } = UseUserPokemons()
   const handleSearch = (e) => {
     e.preventDefault()
     const searchEl = document.getElementById('search-ipt')
@@ -15,7 +15,7 @@ const Search = () => {
       searchEl.value = ''
       return
     }
-    SetPokemons(searchFilterPokemon)
+    setPokemons(searchFilterPokemon)
     searchEl.value = ''
   }
 
